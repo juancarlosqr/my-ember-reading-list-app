@@ -1,3 +1,38 @@
-<h2 id="title">Welcome to Ember.js</h2>
-
-{{outlet}}
+<header class="header">
+    <h1>Reading list</h1>
+</header>
+<div class="container">
+    <nav class="nav-bar">
+        <ul>
+            <li>
+                <a href="index.html" class="is-active">Dashboard</a>
+            </li>
+            <li>
+                <a href="to_read.html">To read next</a>
+            </li>
+            <li>
+                <a href="to_buy.html">To buy</a>
+            </li>
+            <li>
+                <a href="search.html">Search</a>
+            </li>
+            <li>
+                <a href="history.html">History</a>
+            </li>
+        </ul>
+        <p>group by</p>
+        <ul>
+            <li>
+                <a href="by_author.html">author</a>
+            </li>
+            <li>
+                <a href="by_year.html">year</a>
+            </li>
+        </ul>
+    </nav>
+    <div class="main">
+        <div class="article">
+          {{outlet}}
+        </div>
+    </div>
+</div>

@@ -1,0 +1,48 @@
+<article class="book-group">
+    <h3>To read next
+      <span>({{model.length}})</span>
+    </h3>
+    <div class="content">
+        <ol>
+            {{#each model as |book|}}
+            <li>
+                <a href="#">{{book.title}}</a>
+                <a class="year" href="by_year.html">({{book.publicationDate}})</a> -
+                <a href="biography.html">{{book.author}}</a>
+            </li>
+            {{/each}}
+        </ol>
+        <p>
+            <a href="to_read.html" class="more">view more...</a>
+        </p>
+    </div>
+</article>
+<article class="book-group">
+    <h3>To buy
+      <span>(1)</span>
+    </h3>
+    <div class="content">
+        <ol>
+            <li>
+                <a href="#">Ubik</a>
+                <a class="year" href="by_year.html">(1969)</a> -
+                <a href="biography.html">Philip K. Dick</a>
+                <a href="#" class="action" onclick="javascript:alert('Remove book from this list');">Bought</a>
+            </li>
+        </ol>
+    </div>
+</article>
+<article class="book-group">
+    <h3>History
+      <span>(1)</span>
+    </h3>
+    <div class="content">
+        <ol>
+            <li>
+                <a href="#">I, Claudius</a>
+                <a class="year" href="by_year.html">(1934)</a> -
+                <a href="biography.html">Robert Graves</a>
+            </li>
+        </ol>
+    </div>
+</article>
