@@ -13,9 +13,15 @@ function docToBook(doc) {
 
 export default Ember.Route.extend({
   model: function(params) {
-    let term = encodeURIComponent(params.term);
+    let query = encodeURIComponent(params.query);
 
-    return $.getJSON(`https://openlibrary.org/search.json?q=${term}&limit=30&callback=`)
-      .then(r => r.docs.map(docToBook).sortBy('title'));
+    return $.getJSON(`https://openlibrary.org/search.json?q=${query}&limit=15&callback=`)
+      .then((r) => {
+          return {
+            'query': query,
+            'numFound': r.numFound.toLocaleString(),
+            'books': r.docs.map(docToBook).sortBy('title')
+          };
+      });
   }
 });

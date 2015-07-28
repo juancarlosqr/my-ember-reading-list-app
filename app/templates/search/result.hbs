@@ -1,7 +1,8 @@
-<h3>Results</h3>
+<h3>Results for "{{model.query}}"</h3>
+<p>Showing <b>{{model.books.length}}</b> results of <b>{{model.numFound}}</b> items founded</p>
 <div class="content">
   <ol>
-    {{#each model as |book|}}
+    {{#each model.books as |book|}}
     <li>
       <a href="#">{{book.title}}</a>
       <a class="year" href="by_year.html">({{book.publicationDate}})</a> -
@@ -14,4 +15,5 @@
   </ol>
 </div>
 <p> Didn't find your book?
-<a href="add.html">Create it</a>. </p>
+  <a href="add.html">Create it</a>
+</p>
