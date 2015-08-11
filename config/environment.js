@@ -25,10 +25,29 @@ module.exports = function(environment) {
     // ENV.APP.LOG_TRANSITIONS = true;
     // ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
     // ENV.APP.LOG_VIEW_LOOKUPS = true;
+    // ENV.contentSecurityPolicy = {
+    //   'default-src': "'self' http://localhost:4200",
+    //   'connect-src': "'self' http://localhost:4200 https://openlibrary.org",
+    //   'default-src': "'none'",
+    //   'script-src': "'self' connect.facebook.net",
+    //   'font-src': "'self'",
+    //   'img-src': "'self' www.facebook.com",
+    //   'report-uri':"'localhost'",
+    //   'style-src': "'self' 'unsafe-inline'",
+    //   'frame-src': "'self' s-static.ak.facebook.com static.ak.facebook.com www.facebook.com"
+    // };
     ENV.contentSecurityPolicy = {
       'default-src': "'self' http://localhost:4200",
       'connect-src': "'self' http://localhost:4200 https://openlibrary.org"
-    }
+    };
+    ENV['torii'] = {
+      providers: {
+        'facebook-oauth2': {
+          apiKey: '904777482939227',
+          redirectUri: 'http://localhost:4200'
+        }
+      }
+    };
   }
 
   if (environment === 'test') {

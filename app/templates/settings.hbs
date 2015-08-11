@@ -1,0 +1,12 @@
+<h2>Settings</h2>
+{{#if session.isAuthenticated}}
+    <p>Hi logged in user!</p>
+    <p>
+        <button {{action 'invalidateSession'}}>Logout</button>
+    </p>
+{{else}}
+    <p>Hi guest</p>
+    <p>
+        <button {{action 'facebookLogin'}}>Login with Facebook</button>
+    </p>
+{{/if}}

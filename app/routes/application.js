@@ -1,4 +1,5 @@
 import Ember from 'ember';
+import ApplicationRouteMixin from 'simple-auth/mixins/application-route-mixin';
 
 let books = [
   {
@@ -52,10 +53,22 @@ let books = [
   }
 ];
 
-export default Ember.Route.extend({
+export default Ember.Route.extend(ApplicationRouteMixin, {
   model: function() {
     return books
       .map(b => Ember.Object.create(b))
       .sortBy('title');
+  },
+  actions: {
+    facebookLogin() {
+      var route = this;
+      this.get('session')
+        .authenticate('simple-auth-authenticator:torii', 'facebook-oauth2')
+        .then(function () {
+          route.transitionTo('settings');
+        },function () {
+          alert("Rejected!");
+        });
+    }
   }
 });

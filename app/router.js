@@ -12,6 +12,7 @@ Router.map(function() {
   this.route('search', function () {
     this.route('result', { path: ':query' });
   });
+  this.route('settings');
 });
 
 export default Router;
